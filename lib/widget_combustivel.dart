@@ -26,15 +26,14 @@ class _HomeState extends State<Home> {
     setState(() {
       double gasolina = double.parse(gasolinaController.text);
       double alcool = double.parse(alcoolController.text);
-      double diferencaGasolina = gasolina - alcool;
-      double diferencaAlcool = alcool - gasolina;
+      double resultado = (alcool / gasolina);
 
-      if (alcool > gasolina) {
+      if (resultado > 0.70) {
         _infoText =
-            "Diferença: (${diferencaAlcool.toStringAsPrecision(2)})\n\nVale a pena abastecer com Gasolina";
+            "Percentual : (${resultado.toStringAsPrecision(3)})\n\nVale a pena abastecer com Gasolina";
       } else {
         _infoText =
-            "Diferença: (${diferencaGasolina.toStringAsPrecision(2)})\n\nVale a pena abastecer com Alcool";
+            "Percentual : (${resultado.toStringAsPrecision(3)})\n\nVale a pena abastecer com Álcool";
       }
     });
   }
